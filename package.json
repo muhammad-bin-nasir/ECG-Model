@@ -10,10 +10,16 @@
     "test": "jest"
   },
   "dependencies": {
+    "@react-native/new-app-screen": "0.83.1",
+    "buffer": "^6.0.3",
+    "events": "^3.3.0",
+    "onnxruntime-react-native": "^1.23.2",
     "react": "19.2.0",
     "react-native": "0.83.1",
-    "@react-native/new-app-screen": "0.83.1",
-    "react-native-safe-area-context": "^5.5.2"
+    "react-native-ble-plx": "^3.5.0",
+    "react-native-fs": "^2.20.0",
+    "react-native-safe-area-context": "^5.5.2",
+    "react-native-svg": "^15.15.1"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

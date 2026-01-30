@@ -1,20 +1,30 @@
 buildscript {
     ext {
-        buildToolsVersion = "36.0.0"
+        // STABLE VERSIONS
+        buildToolsVersion = "34.0.0"
         minSdkVersion = 24
-        compileSdkVersion = 36
-        targetSdkVersion = 36
-        ndkVersion = "27.1.12297006"
-        kotlinVersion = "2.1.20"
+        compileSdkVersion = 34      // Downgraded from 36 to 34 (Android 14) for compatibility
+        targetSdkVersion = 34       // Downgraded from 36 to 34
+        ndkVersion = "27.1.12297006" // Standard RN NDK. If this fails, we swap back to your 27.x
+        kotlinVersion = "1.9.22"    // 2.1.20 is too new for many React Native libs
     }
     repositories {
         google()
         mavenCentral()
     }
     dependencies {
-        classpath("com.android.tools.build:gradle")
+        // Added version number :8.1.1 to fix "No matching variant" error
+        classpath("com.android.tools.build:gradle:8.1.1") 
         classpath("com.facebook.react:react-native-gradle-plugin")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin")
+    }
+}
+
+// THIS BLOCK WAS MISSING. It allows libraries (ONNX, Bluetooth) to download their dependencies.
+allprojects {
+    repositories {
+        google()
+        mavenCentral() 
     }
 }
 
